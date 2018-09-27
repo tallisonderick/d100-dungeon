@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+
+<html>
+<style>
+	.tamanho {
+		height: 100vh;
+	}
+</style>
+	<div id="attack" class="tamanho">
+		HP: <input type="text" id="hp">
+		<a href="#next">
+			<input type="button" value="Calcular dano">
+		</a>
+	</div>
+
+	<div id="next" class="tamanho">
+		Dano: <input type="text" id="dano">
+		<a href="#attack">
+			<input type="button" onclick="attack()" value="Sofrer ataque">
+		</a>
+	</div>
+
+	<script src="d100.js"></script>
+</html>
