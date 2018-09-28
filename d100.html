@@ -3,36 +3,56 @@
 <html>
 	<head>
 		<script src="d100.js"></script>
-		
-		<style>
-			.caixa {
-				height: 100vh;
-			}
-		</style>
+		<link rel="stylesheet" href="d100.css">
 	</head>
 	
-	<div id="fichaPersonagem" class="caixa">
-		HP: <input type="text" id="hp">
-		<a href="#encontro">
-			<input type="button" value="Calcular dano"> <!-- onclick="calcularDano()" value="Calcular dano"> -->
-		</a>
-	</div>
+	<body onload="atualizarTela(model)">
+		<div id="fichaPersonagem" class="caixa">
+			HP: <input type="text" id="hp">
+			<a href="#encontro"><input type="button" value="Calcular dano"></a>
+			<a href="#tabelas"><input type="button" value="Tabelas"></a>
+		</div>
 
-	<div id="encontro" class="caixa">
-		<div>
-			Valor dado: <input type="text" id="monstroDado">
-			<input type="button" onclick="rolarEncontro()" value="Rolar encontro"><br>
-			Nome monstro: <input type="text" id="monstroNome"><br>
-			Modificador de dano: <input type="text" id="monstroModificadorDano"><br>
-			Valor de ataque: <input type="text" id="monstroValorAtaque"><br>
-			Dado AV: <input type="text" id="dadoAv"><br>
+		<div id="encontro" class="caixa">
+			<div>
+				<a href="#fichaPersonagem"><input type="button" value="Ficha do personagem"></a>
+				<a href="#tabelas"><input type="button" value="Tabelas"></a>
+			</div>
+			
+			<br>
+			
+			<div>
+				Dado monstro: <input type="text" id="monstroDado">
+				<input type="button" onclick="rolarEncontro()" value="Rolar encontro"><br>
+				Nome monstro: <input type="text" id="monstroNome"><br>
+				Modificador de dano: <input type="text" id="monstroModificadorDano"><br>
+				Valor de ataque: <input type="text" id="monstroValorAtaque"><br>
+				Dado AV: <input type="text" id="dadoAv"><br>
+			</div>
+			
+			<br>
+			
+			<div>
+				Dado dano: <input type="text" id="danoDado"><br>
+				Dano: <input type="text" id="dano">
+				<a href="#fichaPersonagem">
+					<input type="button" onclick="sofrerDano()" value="Sofrer dano">
+				</a>
+			</div>
 		</div>
-		<br>
-		<div>
-			Dano: <input type="text" id="dano">
-			<a href="#fichaPersonagem">
-				<input type="button" onclick="sofrerDano()" value="Sofrer dano">
-			</a>
+		
+		<div id="tabelas" class="caixa">
+			<div>
+				<a href="#fichaPersonagem"><input type="button" value="Ficha do personagem"></a>
+				<a href="#encontro"><input type="button" value="Calcular dano"></a>
+			</div>
+			
+			<br>
+			
+			<div>
+				<table id="tabelaMonstros">
+				</table>
+			</div>
 		</div>
-	</div>	
+	</body>
 </html>

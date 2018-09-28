@@ -1,0 +1,9 @@
+.caixa {
+	height: 100vh;
+}
+
+td, th {
+	padding: 7px;
+	text-align: left;
+}
+
