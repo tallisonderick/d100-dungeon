@@ -1,24 +1,38 @@
 <meta charset="utf-8">
 
 <html>
-<style>
-	.tamanho {
-		height: 100vh;
-	}
-</style>
-	<div id="attack" class="tamanho">
+	<head>
+		<script src="d100.js"></script>
+		
+		<style>
+			.caixa {
+				height: 100vh;
+			}
+		</style>
+	</head>
+	
+	<div id="fichaPersonagem" class="caixa">
 		HP: <input type="text" id="hp">
-		<a href="#next">
-			<input type="button" value="Calcular dano">
+		<a href="#encontro">
+			<input type="button" value="Calcular dano"> <!-- onclick="calcularDano()" value="Calcular dano"> -->
 		</a>
 	</div>
 
-	<div id="next" class="tamanho">
-		Dano: <input type="text" id="dano">
-		<a href="#attack">
-			<input type="button" onclick="attack()" value="Sofrer ataque">
-		</a>
-	</div>
-
-	<script src="d100.js"></script>
+	<div id="encontro" class="caixa">
+		<div>
+			Valor dado: <input type="text" id="monstroDado">
+			<input type="button" onclick="rolarEncontro()" value="Rolar encontro"><br>
+			Nome monstro: <input type="text" id="monstroNome"><br>
+			Modificador de dano: <input type="text" id="monstroModificadorDano"><br>
+			Valor de ataque: <input type="text" id="monstroValorAtaque"><br>
+			Dado AV: <input type="text" id="dadoAv"><br>
+		</div>
+		<br>
+		<div>
+			Dano: <input type="text" id="dano">
+			<a href="#fichaPersonagem">
+				<input type="button" onclick="sofrerDano()" value="Sofrer dano">
+			</a>
+		</div>
+	</div>	
 </html>
