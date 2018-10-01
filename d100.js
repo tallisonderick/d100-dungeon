@@ -52,26 +52,24 @@ function rolarEncontro() {
 }
 
 function rolarAv() {
-	//var dadoMonstroValorAtaque = rolarDado(100);
-	//model.dadoMonstroValorAtaque = dadoMonstroValorAtaque;
-	
-	var vetor00 = [00, 10, 20, 30,40, 50, 60, 70, 80, 90];
-	var vetor0 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-	
-	var dado00 = vetor00[rolarDado(10) - 1];
-	var dado0 = vetor0[rolarDado(10) - 1];
-	
-	model.dadoMonstroValorAtaque = dado00 + dado0;
-	
 	var d100Imagem = "";
+	var dadoDezena = (rolarDado(10) - 1) * 10;
+	var dadoUnidade = (rolarDado(10) - 1);
+	var somaDado = dadoDezena + dadoUnidade;
 	
-	if(dado00 == 0) {
-		d100Imagem = "<img class='d10' src='faceDados/d10-00.png'>";
+	if(somaDado == 0) {
+		model.dadoMonstroValorAtaque = 100;
 	} else {
-		d100Imagem = "<img class='d10' src='faceDados/d10-" + dado00 + ".png'>";
+		model.dadoMonstroValorAtaque = somaDado;
 	}
 	
-	d100Imagem += "<img class='d10' src='faceDados/d10-" + dado0 + ".png'>";
+	if(dadoDezena == 0) {
+		d100Imagem = "<img class='d10' src='faceDados/d10-00.png'>";
+	} else {
+		d100Imagem = "<img class='d10' src='faceDados/d10-" + dadoDezena + ".png'>";
+	}
+	
+	d100Imagem += "<img class='d10' src='faceDados/d10-" + dadoUnidade + ".png'>";
 	document.getElementById('d100').innerHTML = d100Imagem;
 	
 	atualizarTela(model);
