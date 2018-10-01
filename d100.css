@@ -2,6 +2,16 @@
 	height: 100vh;
 }
 
+.d6 {
+	width: 45px;
+	height: 45px;
+}
+
+.d10 {
+	width: 60px;
+	height: 60px;
+}
+
 td, th {
 	padding: 7px;
 	text-align: left;

@@ -22,7 +22,7 @@
 			<br>
 			
 			<div>
-				Dado monstro: <input type="text" id="monstroDado">
+				Dado monstro (D10): <input type="text" id="monstroDado">
 				<input type="button" onclick="rolarEncontro()" value="Rolar encontro"><br>
 				Nome monstro: <input type="text" id="monstroNome"><br>
 				Modificador de dano: <input type="text" id="monstroModificadorDano"><br>
@@ -32,8 +32,12 @@
 			<br>
 			
 			<div>
-				Dado AV: <input type="text" id="dadoMonstroValorAtaque"><br>
-				Dado dano: <input type="text" id="dadoDano"><br>
+				Dado AV (D100): <input type="text" id="dadoMonstroValorAtaque">
+				<input type="button" onclick="rolarAv()" value="Rolar AV"><br>
+				<div id="d100"></div>
+				Dado dano (D6): <input type="text" id="dadoDano">
+				<input type="button" onclick="rolarDano()" value="Rolar dano"><br>
+				<div id="d6"></div>
 				Dano: <input type="text" id="dano">
 				<a href="#fichaPersonagem">
 					<input type="button" onclick="sofrerDano()" value="Sofrer dano">
