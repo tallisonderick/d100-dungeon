@@ -1,3 +1,3 @@
-# D100 Dungeon
+# Paper-and-pencil game
 
-Adaptação do jogo D100 Dungeon para web
+Adaptação de um jogo no estilo Paper-and-pencil para web
