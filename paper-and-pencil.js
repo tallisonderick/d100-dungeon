@@ -47,6 +47,9 @@ function rolarEncontro() {
 	model.monstroNome = monstros[dadoMonstro].nome;
 	model.monstroModificadorDano = monstros[dadoMonstro].modificadorDano;;
 	model.monstroValorAtaque = monstros[dadoMonstro].valorAtaque;
+
+	var d10Imagem = "<img class='d10' src='faceDados/d10-" + model.monstroDado + ".png'>";
+	document.getElementById('d10').innerHTML = d10Imagem;
 	
 	atualizarTela(model);
 }
@@ -76,10 +79,9 @@ function rolarAv() {
 }
 
 function rolarDano() {
-	var dadoDano = rolarDado(6);
-	var danoCalculado = calcularDano(model.monstroModificadorDano);
+	model.dadoDano = rolarDado(6);
 	
-	model.dadoDano = dadoDano;
+	var danoCalculado = calcularDano(model.monstroModificadorDano);
 	
 	if(model.dadoMonstroValorAtaque <= model.monstroValorAtaque) {
 		model.dano = danoCalculado;
@@ -94,14 +96,13 @@ function rolarDano() {
 }
 
 function calcularDano(modificadorDano) {
-	var dadoDano = model.dadoDano;
-	var novoDano = dadoDano + modificadorDano;
+	var dano = model.dadoDano + modificadorDano;
 	
-	if(novoDano < 0){
+	if(dano < 0){
 		return 0;
 	}
 	
-	return novoDano;
+	return dano;
 }
 
 function sofrerDano() {
