@@ -1,14 +1,14 @@
 var monstros = [
-		{nome:"GIANT RAT", modificadorDano: -2, valorAtaque: 25},
-		{nome:"GIANT BAT", modificadorDano: -3, valorAtaque: 25},
-		{nome:"GIANT ANT", modificadorDano: -2, valorAtaque: 20},
-		{nome:"GIANT SPIDER", modificadorDano: -1, valorAtaque: 30},
-		{nome:"GOBALOTES", modificadorDano: -2, valorAtaque: 25},
-		{nome:"GOBLIN", modificadorDano: -1, valorAtaque: 25},
-		{nome:"GOBLIN ARCHER", modificadorDano: -1, valorAtaque: 25},
-		{nome:"GOBLIN WARLOCK", modificadorDano: -1, valorAtaque: 30},
-		{nome:"BEAR", modificadorDano: 0, valorAtaque: 40},
-		{nome:"RAT MAN", modificadorDano: 0, valorAtaque: 30}
+	{nome:"GIANT RAT", modificadorDano: -2, valorAtaque: 25},
+	{nome:"GIANT BAT", modificadorDano: -3, valorAtaque: 25},
+	{nome:"GIANT ANT", modificadorDano: -2, valorAtaque: 20},
+	{nome:"GIANT SPIDER", modificadorDano: -1, valorAtaque: 30},
+	{nome:"GOBALOTES", modificadorDano: -2, valorAtaque: 25},
+	{nome:"GOBLIN", modificadorDano: -1, valorAtaque: 25},
+	{nome:"GOBLIN ARCHER", modificadorDano: -1, valorAtaque: 25},
+	{nome:"GOBLIN WARLOCK", modificadorDano: -1, valorAtaque: 30},
+	{nome:"BEAR", modificadorDano: 0, valorAtaque: 40},
+	{nome:"RAT MAN", modificadorDano: 0, valorAtaque: 30}
 ];
 
 var model = {
