@@ -109,7 +109,6 @@ function sofrerDano() {
 	var novoHp = model.hp - model.dano;
 	
 	model.hp = novoHp;
-	model.dano = 0;
 	
 	atualizarTela(model);
 }
@@ -121,8 +120,8 @@ function criarTabelaMonstros(){
 		tabela += "<tr>";
 		tabela += "<td>" + (i + 1) + "</td>";
         tabela += "<td>" + monstros[i].nome + "</td>";
-		tabela += "<td>" + monstros[i].modificadorDano + "</td>";
 		tabela += "<td>" + monstros[i].valorAtaque + "</td>";
+		tabela += "<td>" + monstros[i].modificadorDano + "</td>";
 		tabela += "</tr>";
 	}
 	
