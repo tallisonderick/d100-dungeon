@@ -1,5 +1,5 @@
 .caixa {
-	height: 100vh;
+	/*height: 100vh;*/
 	padding: 10px;
 }
 
@@ -13,7 +13,38 @@
 	height: 60px;
 }
 
-td, th {
+table.tabelaMonstros th {
+	font-weight: bold;
+}
+
+table.tabelaMonstros th, table.tabelaMonstros td {
 	padding: 7px;
 	text-align: left;
+}
+
+table.fichaPersonagem1 {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+table.fichaPersonagem1 th, table.fichaPersonagem1 td {
+	text-align: left;
+	padding: 5px;
+	border-right: 1px solid black;
+}
+
+table.fichaPersonagem2 {
+	margin-top: 5px;
+	border-collapse: collapse;
+}
+
+table.fichaPersonagem2 th {
+	padding: 5px;
+}
+
+table.fichaPersonagem2 td {
+	text-align: left;
+	vertical-align: middle;
+	padding: 5px;
+	border: 1px solid black;
 }

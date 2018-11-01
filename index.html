@@ -5,15 +5,645 @@
 		<meta charset="utf-8">
 		<title>Paper-and-pencil game</title>
 		<script src="paper-and-pencil.js"></script>
-		<link rel="stylesheet" href="reset.css">
+		<!--<link rel="stylesheet" href="reset_1.css">-->
 		<link rel="stylesheet" href="paper-and-pencil.css">
 	</head>
 	
 	<body onload="atualizarTela(model)">
 		<div id="fichaPersonagem" class="caixa">
-			HP: <input type="text" id="hp">
-			<a href="#encontro"><input type="button" value="Calcular dano"></a>
-			<a href="#tabelas"><input type="button" value="Tabelas"></a>
+			<div>
+				HP: <input type="text" id="hp">
+				<a href="#encontro"><input type="button" value="Calcular dano"></a>
+				<a href="#tabelas"><input type="button" value="Tabelas"></a>
+			</div>
+
+			<br>
+
+			<div>
+				<div>
+					<table class="fichaPersonagem1">
+						<tr>
+							<th>NAME:</th>
+							<th>REP: (Min 1 Max 10)</th>
+							<th>GP:</th>
+							<th>FATE:</th>
+							<th>LIVES:</th>
+							<th>QUEST ENC. MOD:</th>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+						</tr>
+					</table>
+
+					<div>
+						-20 Rolls when Dark
+						<img src="fichaPersonagem/sun.png"><input type="checkbox">
+					</div>
+				</div>
+
+				<div>
+					<table class="fichaPersonagem2">
+						<tr>
+							<th></th>
+							<th>Primary</th>
+							<th>Adjusted</th>
+							<th>Experience Track</th>
+							<th>Unlocks the Abilities below at 50</th>
+						</tr>
+						<tr>
+							<td>Strength (Str)</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<img src="fichaPersonagem/level_up.png"></td>
+							<td>MIGHT BLOW<br>During Combat Dmg Rolls of 6 roll again and add to first roll</td>
+						</tr>
+						<tr>
+							<td>Dexterity (Dex)</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<img src="fichaPersonagem/level_up.png"></td>
+							<td>PERFECT AIM<br>Roll again for Hit Location and choose either result</td>
+						</tr>
+						<tr>
+							<td>Intelligence (Int)</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<img src="fichaPersonagem/level_up.png"></td>
+							<td>SPELL CASTER<br>Unlocks the Spell Book and can now use and learn Spells</td>
+						</tr>
+					</table>
+					<div style="margin-top: 5px;">
+						<img src="fichaPersonagem/level_up.png"> +5 to Characteristic or Skill then refresh Track
+					</div>
+				</div>
+
+				<div>
+					<table class="fichaPersonagem2">
+						<tr>
+							<th>Roll D10</th>
+							<th>DMG Mod</th>
+							<th>Location</th>
+							<th>Equipped Item</th>
+							<th>STR</th>
+							<th>DEX</th>
+							<th>INT</th>
+							<th>HP</th>
+							<th>DEF</th>
+							<th>DMG</th>
+							<th>Value</th>
+							<th>Repair</th>
+							<th>Repair Track</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>+3</td>
+							<td>Head</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>+2</td>
+							<td>Back</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>+1</td>
+							<td>Torso</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>-</td>
+							<td>Arms</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>-</td>
+							<td>Hands</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>-</td>
+							<td>M Weap <img src="fichaPersonagem/hand.png"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>-</td>
+							<td>O Weap <img src="fichaPersonagem/hand.png"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>BC</td>
+							<td>Waist</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>-1</td>
+							<td>Legs</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>-1</td>
+							<td>Feet</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox">
+								<input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>Neck</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td>+<input type="text"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>Ring</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td>+<input type="text"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>Ring</td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td>+<input type="text"></td>
+							<td>+<input type="text"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>TOTALS</td>
+							<td>Bonus <input type="text"></td>
+							<td>Bonus <input type="text"></td>
+							<td>Bonus<input type="text"></td>
+							<td>Bonus<input type="text"></td>
+							<td>DB <input type="text"></td>
+							<td>Bonus<input type="text"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+
+				<div style="background-color:#a7adba; height: 50px; margin-bottom: 5px;"></div>
+				<div style="background-color:#c0c5ce; height: 50px; margin-bottom: 5px;"></div>
+				<div>
+					<div style="background-color:#343d46; height: 50px; margin-bottom: 5px;"></div>
+					<div style="background-color:#4f5b66; height: 50px; margin-bottom: 5px;"></div>
+					<div style="background-color:#65737e; height: 50px; margin-bottom: 5px;"></div>
+					<div style="background-color:#a7adba; height: 50px; margin-bottom: 5px;"></div>
+				</div>
+				<div>
+					<div>
+						<table class="fichaPersonagem2">
+							<tr>
+								<th></th>
+								<th>SKILLS</th>
+								<th>Max +20</th>
+								<th>Experience Track</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Agility</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Aware</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Bravery</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>Dodge</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Escape</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>Locks</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>Lucky</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>Magic</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>Strong</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>Traps</td>
+								<td><input type="text"></td>
+								<td><input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<input type="checkbox">
+									<img src="fichaPersonagem/level_up.png"></td>
+							</tr>
+						</table>
+					</div>
+
+					<div>
+						<table class="fichaPersonagem2">
+							<tr>
+								<th>INT Level</th>
+								<th>Test Bonus</th>
+								<th>SPELL BOOK</th>
+								<th>Cost</th>
+							</tr>
+							<tr>
+								<td rowspan="5">50+</td>
+								<td>+20</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>+15</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>+10</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>+5</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>+0</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>60+</td>
+								<td>-0</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>70+</td>
+								<td>-5</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>80+</td>
+								<td>-10</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>90+</td>
+								<td>-15</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>100</td>
+								<td>-20</td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+						</table>
+					</div>
+
+					<div>
+						
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div id="encontro" class="caixa">
@@ -55,7 +685,7 @@
 		</div>
 		
 		<div id="tabelas" class="caixa">
-			<div>
+			<div >
 				<a href="#fichaPersonagem"><input type="button" value="Ficha do personagem"></a>
 				<a href="#encontro"><input type="button" value="Calcular dano"></a>
 			</div>
@@ -63,7 +693,7 @@
 			<br>
 			
 			<div>
-				<table id="tabelaMonstros"></table>
+				<table class="tabelaMonstros" id="tabelaMonstros"></table>
 			</div>
 		</div>
 	</body>
