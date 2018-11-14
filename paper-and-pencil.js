@@ -48,8 +48,6 @@ function atualizarTela(model) {
 	document.getElementById('monstroNome').value = model.monstroNome;
 	document.getElementById('monstroModificadorDano').value = model.monstroModificadorDano;
 	document.getElementById('monstroValorAtaque').value = model.monstroValorAtaque;
-
-	criarTabelaMonstros();
 }
 
 function rolarDado(faces) {
