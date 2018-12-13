@@ -134,7 +134,7 @@ function rolarEncontro() {
 	model.monstroModificadorDano = tabelaDeEncontro[pos].modificadorDano;;
 	model.monstroValorAtaque = tabelaDeEncontro[pos].valorAtaque;
 
-	var d10Imagem = "<img class='d10' src='faceDados/d10-" + model.monstroDado + ".png'>";
+	var d10Imagem = "<img class='d10' src='img/faceDados/d10-" + model.monstroDado + ".png'>";
 	document.getElementById('d10').innerHTML = d10Imagem;
 
 	atualizarTela(model);
@@ -152,12 +152,12 @@ function rolarAv() {
 	}
 
 	if (dadoDezena == 0) {
-		var d100Imagem = "<img class='d10' src='faceDados/d10-00.png'>";
+		var d100Imagem = "<img class='d10' src='img/faceDados/d10-00.png'>";
 	} else {
-		var d100Imagem = "<img class='d10' src='faceDados/d10-" + dadoDezena + ".png'>";
+		var d100Imagem = "<img class='d10' src='img/faceDados/d10-" + dadoDezena + ".png'>";
 	}
 
-	d100Imagem += "<img class='d10' src='faceDados/d10-" + dadoUnidade + ".png'>";
+	d100Imagem += "<img class='d10' src='img/faceDados/d10-" + dadoUnidade + ".png'>";
 	document.getElementById('d100').innerHTML = d100Imagem;
 
 	atualizarTela(model);
@@ -174,7 +174,7 @@ function rolarDano() {
 		model.dano = 0;
 	}
 
-	var d6Imagem = "<img class='d6' src='faceDados/d6-" + model.dadoDano + ".png'>";
+	var d6Imagem = "<img class='d6' src='img/faceDados/d6-" + model.dadoDano + ".png'>";
 	document.getElementById('d6').innerHTML = d6Imagem;
 
 	atualizarTela(model);
