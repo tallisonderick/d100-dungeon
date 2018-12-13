@@ -1,5 +1,7 @@
 function AppViewModel() {
-	this.encontro = ko.observableArray([
+	var self = this;
+
+	self.tabelaDeEncontro = ko.observableArray([
 		{ min: 1, max: 10, nome: "GIANT RAT", valorAtaque: 25, modificadorDano: -2, hp: 3 },
 		{ min: 11, max: 20, nome: "GIANT BAT", valorAtaque: 25, modificadorDano: -3, hp: 2 },
 		{ min: 21, max: 25, nome: "GIANT ANT", valorAtaque: 20, modificadorDano: -2, hp: 3 },
@@ -11,11 +13,50 @@ function AppViewModel() {
 		{ min: 43, max: 44, nome: "BEAR", valorAtaque: 40, modificadorDano: 0, hp: 10 },
 		{ min: 45, max: 46, nome: "RAT MAN", valorAtaque: 30, modificadorDano: 0, hp: 3 }
 	]);
+
+	self.combate = new Combate();
+
+	self.combateTerminou = ko.observable();
+	self.dadoReacao = ko.observable();
+	self.resultadoReacao = ko.observable();
+	self.resultadoFinalDoCombate = ko.observable();
+
+	self.aplicarDadosDoCombate = function () {
+		self.combateTerminou(self.combate.combateTerminou);
+		self.dadoReacao(self.combate.dadoReacao);
+		self.resultadoReacao(self.combate.resultadoReacao);
+		self.resultadoFinalDoCombate(self.combate.resultadoFinalDoCombate);
+	}
+
+	self.rolarReacao = function () {
+		var dado = rolarDado(10);
+		self.combate.descobrirReacao(dado);
+		self.aplicarDadosDoCombate();
+	};
+
 }
+
+//window.Combate = new Combate();
 
 ko.applyBindings(new AppViewModel());
 
-var encontro = [
+function Combate() {
+	var self = this;
+
+	self.combateTerminou = false;
+	self.dadoReacao = 0;
+
+	self.resultadoReacao = "";
+	self.resultadoFinalDoCombate = "";
+
+	self.descobrirReacao = function (dado) {
+		self.dadoReacao = dado;
+		self.resultadoFinalDoCombate = dado;
+		self.combateTerminou = true;
+	};
+}
+
+var tabelaDeEncontro = [
 	{ min: 1, max: 10, nome: "GIANT RAT", valorAtaque: 25, modificadorDano: -2, hp: 3 },
 	{ min: 11, max: 20, nome: "GIANT BAT", valorAtaque: 25, modificadorDano: -3, hp: 2 },
 	{ min: 21, max: 25, nome: "GIANT ANT", valorAtaque: 20, modificadorDano: -2, hp: 3 },
@@ -28,11 +69,11 @@ var encontro = [
 	{ min: 45, max: 46, nome: "RAT MAN", valorAtaque: 30, modificadorDano: 0, hp: 3 }
 ];
 
-function MonstroEncontrado(encontro) {
+function MonstroEncontrado(tabelaDeEncontro) {
 	var self = this;
 
-	self.hp = encontro.hp;
-	self.encontro = encontro;
+	self.hp = tabelaDeEncontro.hp;
+	self.tabelaDeEncontro = tabelaDeEncontro;
 }
 
 function Personagem(hp, forca) {
@@ -56,12 +97,6 @@ function ReacaoDoMonstro() {
 	self.dadoDeReacao = '';
 	self.reacaoDoMonstro = '';
 }
-
-function Combate() {
-
-}
-
-window.Combate = new Combate();
 
 var model = {
 	hp: 20,
@@ -95,9 +130,9 @@ function rolarEncontro() {
 	var pos = dadoMonstro - 1;
 
 	model.monstroDado = dadoMonstro;
-	model.monstroNome = encontro[pos].nome;
-	model.monstroModificadorDano = encontro[pos].modificadorDano;;
-	model.monstroValorAtaque = encontro[pos].valorAtaque;
+	model.monstroNome = tabelaDeEncontro[pos].nome;
+	model.monstroModificadorDano = tabelaDeEncontro[pos].modificadorDano;;
+	model.monstroValorAtaque = tabelaDeEncontro[pos].valorAtaque;
 
 	var d10Imagem = "<img class='d10' src='faceDados/d10-" + model.monstroDado + ".png'>";
 	document.getElementById('d10').innerHTML = d10Imagem;
